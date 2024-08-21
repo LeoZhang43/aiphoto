@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+}
+.login-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.form-third-party-login{
+    display: flex;
+    flex-direction: row;
+}
+.login-form{
+    display: flex;
+    height: 95vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  
+    align-items: center; 
+    width: 100%;
+    height: 5vh;
+}
+.login-header-icon{
+    width: 3vh;
+    height: 3vh;
+}
+.icon-xinhao{
+    width: 2vh;
+    height: 2vh;
+    margin-bottom: 0.5vh;
+}
+.login-header-text{
+    font-size: 2.5vh;
+    margin-left: 1vh;
+    padding-bottom: 0.5vh;
+}
+.login-header-icon-container{
+    margin-right: 1vh;
+}
+.form-container{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 4fr 3fr 1fr 3fr;
+}
+.title-icon{
+    height: 58px;
+    width: 58px;
+}
+.title-text{
+    height: 46px;
+    width: 151px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 58px;
+    width: 220px;
+    margin: auto;
+}
+.form-login-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 20px;
+}
+.form-login-input > * {  
+    margin-bottom: 20px; /* 设置元素间的间距 */  
+  } 
+.input-form{
+    width: 100%;
+    height: 56px;
+    border-radius: 100px;
+    border: 0.5px solid #C622CF;
+    padding: 10px 24px;
+}
+input::placeholder {  
+    color: #6D616D; 
+    font-weight: 500; 
+    font-size: 16px;
+}
+.login-button{
+    width: 100% - 40px;
+    height: 56px;
+    margin: 0 auto;
+    background-color: #C622CF;
+    opacity: 0.3;
+    border-radius: 100px;
+    border: none; /* 去除边框 */  
+    outline: none; /* 同时去除点击时的轮廓线，可选 */  
+    color: #FFFFFF;
+    font-weight: 500; 
+    font-size: 20px;
+    margin: 0 20px;
+}
+.divider {  
+    display: flex;  
+    align-items: center;  
+    text-align: center;  
+    margin: 20px 0;  
+}  
+.divider::before,  
+.divider::after {  
+    content: '';  
+    flex: 1;  
+    border-top: 0.33px solid rgba(0, 0, 0, 20%); /* 分割线样式 */  
+    margin: 0 10px; /* 分割线与文字的间距 */  
+}  
+.divider span {    
+    background-color: #fff; /* 文字背景色，确保文字在分割线上方 */  
+}
+.loginText{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.09px;
+    color: rgba(0, 0, 0, 20%);
+}
+.third-party-icon{
+    height: 32px;
+    width: 32px;
+}
+.form-third-party-login{
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.signup-container{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.signup-text{
+    color: rgba(0, 0, 0, 40%);
+    font-weight: 400;
+    font-size: 14px;
+}
+.signup-button{
+    text-decoration: none;
+    color: #C622CF;
+}

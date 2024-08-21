@@ -1,11 +1,11 @@
 import React, { useState } from 'react';  
 import { ThemeProvider } from '../Context/ThemeProvider';  
-import ChangeColor from './ChangeColor';
+import LogInContent from './LogInContent';
 
 function LoginPage() {  
   return (  
     <ThemeProvider>  
-      <ChangeColor />   
+      <LogInContent />   
     </ThemeProvider>  
   );
 }  
