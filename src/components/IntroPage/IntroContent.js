@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';  
-import './style.css'; // 引入样式文件  
+import { useNavigate } from 'react-router-dom'; 
+import './style.css'; 
   
 const IntroContent = () => {  
   const [currentIndex, setCurrentIndex] = useState(0);  
@@ -13,11 +14,18 @@ const IntroContent = () => {
     ["Unleash Your Creativity!", "Create and Market T-shirts with AI"],
     ["Empower Your Vision!", "Design and Sell T-shirts using AI Technology"],
   ];
-  const changeBackgroundImage = () => {
-    setCurrentIndex((prevIndex) => {
-      return prevIndex === images.length - 1 ? 0 : prevIndex + 1;
-    });
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/main');
   };
+  useEffect(() => {  
+    const nextSlide = () => {  
+      setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);  
+    };  
+    const timer = setInterval(nextSlide, 3000);  
+    return () => clearInterval(timer);  
+  }, [currentIndex]);  
+
   const array = [1, 1, 1];
   return (  
     <div>
@@ -49,7 +57,7 @@ const IntroContent = () => {
         </div>
         <div className='footer-container'>
           <div className='button-container'>
-            <button onClick={changeBackgroundImage} className='button-create-now'>Create Now</button>
+            <button onClick={handleClick} className='button-create-now'>Create Now</button>
           </div>
           <div className="circles-container">  
             {array.map((element, index) => (  

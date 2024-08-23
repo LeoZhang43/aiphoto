@@ -1,6 +1,6 @@
 import React, { useState } from 'react';  
 import { ThemeProvider } from '../Context/ThemeProvider';  
-import SignUpContent from './SignUpContent';
+import SignUpContent from './SignUpContent.js';
 
 function SignupPage() {  
   return (  

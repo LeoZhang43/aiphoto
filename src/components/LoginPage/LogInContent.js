@@ -1,8 +1,46 @@
-import React from 'react'; 
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './style.css';
   
 // 使用ThemeContext的组件  
 const LogInContent = () => { 
+  const [account, setAccount] = useState('');
+  const [password, setPassword] = useState('');
+  const [buttonEnable, setButtonEnable] = useState(false);
+  const navigate = useNavigate();
+  const handleAccountChange = (event) => {  
+    setAccount(event.target.value);  
+    if(account && password){
+      setButtonEnable(true);
+    }
+  }; 
+  const handlePasswordChange = (event) => {  
+    setPassword(event.target.value); 
+    if(account && password){
+      setButtonEnable(true);
+    } 
+  }; 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 简单的邮箱验证正则表达式  
+  
+    if (!emailPattern.test(account)) {  
+      alert('请输入有效的邮箱地址！');  
+      setAccount('');
+      setPassword('');
+      setButtonEnable(false);
+      return;
+    }  
+  
+    if (password.length < 6) {  
+      alert('密码长度不能少于6位！');   
+      setAccount('');
+      setPassword('');
+      setButtonEnable(false);
+      return;
+    }  
+    navigate('/intro');
+  }
   return (  
     <div className="login-container">  
       <form className="login-form">  
@@ -15,12 +53,31 @@ const LogInContent = () => {
           </div>
           <div className='interactive-container'>
             <div className='form-login-input'>
-              <input className="input-form" type="text" id="username" placeholder="Email"/>
-              <input className="input-form" type="password" id="password" placeholder="Password"/>
+              <input 
+                className="input-form" 
+                value={account}
+                type="text" 
+                id="username" 
+                placeholder="Email"
+                onChange={handleAccountChange}
+              />
+              <input 
+                className="input-form" 
+                value={password}
+                type="password" 
+                id="password" 
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              />
             </div>
-            <button type="submit" className='login-button'>log in</button>  
+            <button 
+              type="submit" 
+              className={`login-button ${buttonEnable ? 'active' : 'disable'}`}
+              disabled={!buttonEnable}
+              onClick={handleSubmit}
+            >log in</button>  
             <div className='form-third-party-login-container'>
-              <div class="divider">  
+              <div className="divider">  
                 <span className='loginText'>OR login with</span>  
               </div>
               <div className='login-footer'>
@@ -34,7 +91,7 @@ const LogInContent = () => {
           </div>
           <div className='signup-container'>
             <span className='signup-text'>Don't have a account? 
-              <a href="" className="signup-button"> Sign Up</a>
+              <a href="/signup" className="signup-button"> Sign Up</a>
             </span>
           </div>
         </div>

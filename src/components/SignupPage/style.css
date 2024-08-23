@@ -54,6 +54,7 @@
 .title-text{
     height: 46px;
     width: 151px;
+    margin-left: 10px;
 }
 .title{
     display: flex;
